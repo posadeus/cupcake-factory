@@ -1,13 +1,13 @@
 package com.posadeus.cupcakefactory.checkout
 
-import com.posadeus.cupcakefactory.BaseCupcake
+import com.posadeus.cupcakefactory.Cupcake
 import java.math.BigDecimal
 
 class Checkout {
 
-  fun price(cupcakes: List<BaseCupcake>): BigDecimal =
+  fun price(cupcakes: List<Cupcake>): BigDecimal =
       if (cupcakes.isEmpty())
         BigDecimal.ZERO
       else
-        BigDecimal.ONE
+        cupcakes[0].price()
 }
