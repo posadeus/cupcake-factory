@@ -1,9 +1,11 @@
 package com.posadeus.cupcakefactory.cupcake
 
+import com.posadeus.cupcakefactory.common.Price
 import com.posadeus.cupcakefactory.cupcake.Topping.CHOCOLATE
 import com.posadeus.cupcakefactory.cupcake.Topping.NUTS
 import org.junit.jupiter.api.Test
 import java.math.BigDecimal
+import java.util.*
 import kotlin.test.assertTrue
 
 class CupcakeFactoryTest {
@@ -17,7 +19,7 @@ class CupcakeFactoryTest {
     val cupcake = cupcakeFactory.createCupcake(topping)
 
     assertTrue { cupcake.name() == "Cupcake" }
-    assertTrue { cupcake.price() == BigDecimal("1.00") }
+    assertTrue { cupcake.price() == Price(BigDecimal("1.00"), USD_CURRENCY) }
   }
 
   @Test
@@ -27,7 +29,7 @@ class CupcakeFactoryTest {
     val cupcake = cupcakeFactory.createCupcake(topping)
 
     assertTrue { cupcake.name() == "Chocolate Cupcake" }
-    assertTrue { cupcake.price() == BigDecimal("1.10") }
+    assertTrue { cupcake.price() == Price(BigDecimal("1.10"), USD_CURRENCY) }
   }
 
   @Test
@@ -37,7 +39,7 @@ class CupcakeFactoryTest {
     val cupcake = cupcakeFactory.createCupcake(topping)
 
     assertTrue { cupcake.name() == "Nuts Chocolate Cupcake" }
-    assertTrue { cupcake.price() == BigDecimal("1.30") }
+    assertTrue { cupcake.price() == Price(BigDecimal("1.30"), USD_CURRENCY) }
   }
 
   @Test
@@ -47,6 +49,11 @@ class CupcakeFactoryTest {
     val cupcake = cupcakeFactory.createCupcake(topping)
 
     assertTrue { cupcake.name() == "Chocolate Nuts Cupcake" }
-    assertTrue { cupcake.price() == BigDecimal("1.30") }
+    assertTrue { cupcake.price() == Price(BigDecimal("1.30"), USD_CURRENCY) }
+  }
+
+  companion object {
+
+    private val USD_CURRENCY = Currency.getInstance("USD")
   }
 }

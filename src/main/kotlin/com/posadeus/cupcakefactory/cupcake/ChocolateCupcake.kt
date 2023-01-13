@@ -1,12 +1,15 @@
 package com.posadeus.cupcakefactory.cupcake
 
+import com.posadeus.cupcakefactory.common.Price
 import java.math.BigDecimal
+import java.util.*
 
 class ChocolateCupcake(private val cupcake: Cupcake) : Cupcake {
 
   override fun name(): String =
       "Chocolate ${cupcake.name()}"
 
-  override fun price(): BigDecimal =
-      BigDecimal("0.10").plus(cupcake.price())
+  override fun price(): Price =
+      Price(BigDecimal("0.10").plus(cupcake.price().value),
+            Currency.getInstance("USD"))
 }

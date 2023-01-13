@@ -1,10 +1,10 @@
 package com.posadeus.cupcakefactory.cupcake
 
-import java.math.BigDecimal
+import com.posadeus.cupcakefactory.common.Price
 
 interface Cupcake {
 
   fun name(): String
 
-  fun price(): BigDecimal
+  fun price(): Price
 }
