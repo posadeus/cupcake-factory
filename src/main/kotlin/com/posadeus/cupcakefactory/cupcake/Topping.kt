@@ -3,5 +3,7 @@ package com.posadeus.cupcakefactory.cupcake
 enum class Topping {
 
   CHOCOLATE,
-  NUTS
+  NUTS,
+  VANILLA,
+  WHIPPED_CREAM
 }

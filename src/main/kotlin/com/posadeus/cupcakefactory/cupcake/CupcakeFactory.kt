@@ -1,7 +1,6 @@
 package com.posadeus.cupcakefactory.cupcake
 
-import com.posadeus.cupcakefactory.cupcake.Topping.CHOCOLATE
-import com.posadeus.cupcakefactory.cupcake.Topping.NUTS
+import com.posadeus.cupcakefactory.cupcake.Topping.*
 
 class CupcakeFactory {
 
@@ -14,6 +13,8 @@ class CupcakeFactory {
           when (topping.first()) {
             CHOCOLATE -> ChocolateCupcake(go(topping.drop(1)))
             NUTS -> NutsCupcake(go(topping.drop(1)))
+            VANILLA -> VanillaCupcake(go(topping.drop(1)))
+            WHIPPED_CREAM -> WhippedCreamCupcake(go(topping.drop(1)))
           }
 
     return go(topping.asReversed())
