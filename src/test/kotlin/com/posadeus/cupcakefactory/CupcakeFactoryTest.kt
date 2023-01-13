@@ -11,12 +11,18 @@ class CupcakeFactoryTest {
   @Test
   internal fun `create a cupcake with name and price`() {
 
-    assertTrue { cupcakeFactory.createCupcake() == Cupcake(A_NAME, A_PRICE) }
+    val cupcake = cupcakeFactory.createCupcake(Topping.EMPTY)
+
+    assertTrue { cupcake.name() == "Cupcake" }
+    assertTrue { cupcake.price() == BigDecimal.ONE }
   }
 
-  companion object {
+  @Test
+  internal fun `create a chocolate topping cupcake`() {
 
-    private const val A_NAME = "A_NAME"
-    private val A_PRICE = BigDecimal.ONE
+    val cupcake = cupcakeFactory.createCupcake(Topping.CHOCOLATE)
+
+    assertTrue { cupcake.name() == "Chocolate Cupcake" }
+    assertTrue { cupcake.price() == BigDecimal("1.1") }
   }
 }

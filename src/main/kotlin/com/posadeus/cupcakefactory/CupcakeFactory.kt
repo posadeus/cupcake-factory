@@ -1,9 +1,10 @@
 package com.posadeus.cupcakefactory
 
-import java.math.BigDecimal
-
 class CupcakeFactory {
 
-  fun createCupcake(): Cupcake =
-      Cupcake("A_NAME", BigDecimal.ONE)
+  fun createCupcake(topping: Topping): Cupcake =
+      when (topping) {
+        Topping.EMPTY -> BaseCupcake()
+        Topping.CHOCOLATE -> ChocolateCupcake()
+      }
 }

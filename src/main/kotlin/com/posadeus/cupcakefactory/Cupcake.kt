@@ -2,5 +2,9 @@ package com.posadeus.cupcakefactory
 
 import java.math.BigDecimal
 
-data class Cupcake(val name: String,
-                   val price: BigDecimal)
+interface Cupcake {
+
+  fun name(): String
+
+  fun price(): BigDecimal
+}
