@@ -7,7 +7,7 @@ class Checkout {
 
   fun price(cupcakes: List<Cupcake>): BigDecimal =
       if (cupcakes.isEmpty())
-        BigDecimal.ZERO
+        BigDecimal("0.00")
       else
         cupcakes.map { it.price() }
             .reduce { acc, singleCupcakePrice -> acc.plus(singleCupcakePrice) }

@@ -8,5 +8,5 @@ class BaseCupcake : Cupcake {
       "Cupcake"
 
   override fun price(): BigDecimal =
-      BigDecimal.ONE
+      BigDecimal("1.00")
 }

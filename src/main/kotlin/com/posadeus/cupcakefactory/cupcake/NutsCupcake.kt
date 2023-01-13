@@ -8,5 +8,5 @@ class NutsCupcake(private val cupcake: Cupcake) : Cupcake {
       "Nuts ${cupcake.name()}"
 
   override fun price(): BigDecimal =
-      BigDecimal("0.2").plus(cupcake.price())
+      BigDecimal("0.20").plus(cupcake.price())
 }

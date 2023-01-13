@@ -13,24 +13,24 @@ class CheckoutTest {
   @Test
   internal fun `the price of an empty cart is ZERO`() {
 
-    assertTrue { checkout.price(emptyList()) == BigDecimal.ZERO }
+    assertTrue { checkout.price(emptyList()) == BigDecimal("0.00") }
   }
 
   @Test
   internal fun `the price of a base cupcake is ONE`() {
 
-    assertTrue { checkout.price(listOf(BaseCupcake())) == BigDecimal.ONE }
+    assertTrue { checkout.price(listOf(BaseCupcake())) == BigDecimal("1.00") }
   }
 
   @Test
   internal fun `the price of a topped cupcake depend from topping`() {
 
-    assertTrue { checkout.price(listOf(ChocolateCupcake(BaseCupcake()))) == BigDecimal("1.1") }
+    assertTrue { checkout.price(listOf(ChocolateCupcake(BaseCupcake()))) == BigDecimal("1.10") }
   }
 
   @Test
   internal fun `checkout multiple cupcakes`() {
 
-    assertTrue { checkout.price(listOf(BaseCupcake(), ChocolateCupcake(BaseCupcake()))) == BigDecimal("2.1") }
+    assertTrue { checkout.price(listOf(BaseCupcake(), ChocolateCupcake(BaseCupcake()))) == BigDecimal("2.10") }
   }
 }
