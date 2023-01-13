@@ -27,4 +27,10 @@ class CheckoutTest {
 
     assertTrue { checkout.price(listOf(ChocolateCupcake(BaseCupcake()))) == BigDecimal("1.1") }
   }
+
+  @Test
+  internal fun `checkout multiple cupcakes`() {
+
+    assertTrue { checkout.price(listOf(BaseCupcake(), ChocolateCupcake(BaseCupcake()))) == BigDecimal("2.1") }
+  }
 }

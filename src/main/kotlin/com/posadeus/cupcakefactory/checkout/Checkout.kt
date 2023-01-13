@@ -9,5 +9,6 @@ class Checkout {
       if (cupcakes.isEmpty())
         BigDecimal.ZERO
       else
-        cupcakes[0].price()
+        cupcakes.map { it.price() }
+            .reduce { acc, singleCupcakePrice -> acc.plus(singleCupcakePrice) }
 }
