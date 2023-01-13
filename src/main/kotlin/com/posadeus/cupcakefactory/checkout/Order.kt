@@ -1,9 +1,5 @@
 package com.posadeus.cupcakefactory.checkout
 
-import com.posadeus.cupcakefactory.cupcake.*
+import com.posadeus.cupcakefactory.cupcake.Topping
 
-class Order(private val cupcakeFactory: CupcakeFactory) {
-
-  fun order(topping: List<Topping>): Cupcake =
-      cupcakeFactory.createCupcake(topping)
-}
+data class Order(val toppings: List<Topping>)
