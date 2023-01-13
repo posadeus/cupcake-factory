@@ -1,6 +1,6 @@
 package com.posadeus.cupcakefactory.checkout
 
-import com.posadeus.cupcakefactory.Cupcake
+import com.posadeus.cupcakefactory.cupcake.Cupcake
 import java.math.BigDecimal
 
 class Checkout {

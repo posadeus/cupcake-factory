@@ -1,7 +1,7 @@
 package com.posadeus.cupcakefactory.checkout
 
-import com.posadeus.cupcakefactory.BaseCupcake
-import com.posadeus.cupcakefactory.ChocolateCupcake
+import com.posadeus.cupcakefactory.cupcake.BaseCupcake
+import com.posadeus.cupcakefactory.cupcake.ChocolateCupcake
 import org.junit.jupiter.api.Test
 import java.math.BigDecimal
 import kotlin.test.assertTrue

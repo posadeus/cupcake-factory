@@ -1,7 +1,7 @@
-package com.posadeus.cupcakefactory
+package com.posadeus.cupcakefactory.cupcake
 
-import com.posadeus.cupcakefactory.Topping.CHOCOLATE
-import com.posadeus.cupcakefactory.Topping.NUTS
+import com.posadeus.cupcakefactory.cupcake.Topping.CHOCOLATE
+import com.posadeus.cupcakefactory.cupcake.Topping.NUTS
 
 class CupcakeFactory {
 

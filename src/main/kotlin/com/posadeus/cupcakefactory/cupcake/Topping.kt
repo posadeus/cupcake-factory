@@ -1,4 +1,4 @@
-package com.posadeus.cupcakefactory
+package com.posadeus.cupcakefactory.cupcake
 
 enum class Topping {
 
