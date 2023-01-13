@@ -37,4 +37,14 @@ class CupcakeFactoryTest {
     assertTrue { cupcake.name() == "Nuts Chocolate Cupcake" }
     assertTrue { cupcake.price() == BigDecimal("1.3") }
   }
+
+  @Test
+  internal fun `create a nuts and chocolate topped cupcake`() {
+
+    val topping = listOf(Topping.NUTS, Topping.CHOCOLATE)
+    val cupcake = cupcakeFactory.createCupcake(topping)
+
+    assertTrue { cupcake.name() == "Chocolate Nuts Cupcake" }
+    assertTrue { cupcake.price() == BigDecimal("1.3") }
+  }
 }
