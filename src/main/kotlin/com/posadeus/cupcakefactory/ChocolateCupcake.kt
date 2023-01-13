@@ -2,11 +2,11 @@ package com.posadeus.cupcakefactory
 
 import java.math.BigDecimal
 
-class ChocolateCupcake : Cupcake {
+class ChocolateCupcake(private val cupcake: Cupcake) : Cupcake {
 
   override fun name(): String =
-      "Chocolate Cupcake"
+      "Chocolate ${cupcake.name()}"
 
   override fun price(): BigDecimal =
-      BigDecimal("1.1")
+      BigDecimal("0.1").plus(cupcake.price())
 }

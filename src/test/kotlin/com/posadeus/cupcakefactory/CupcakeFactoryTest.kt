@@ -11,18 +11,30 @@ class CupcakeFactoryTest {
   @Test
   internal fun `create a cupcake with name and price`() {
 
-    val cupcake = cupcakeFactory.createCupcake(Topping.EMPTY)
+    val topping = emptyList<Topping>()
+    val cupcake = cupcakeFactory.createCupcake(topping)
 
     assertTrue { cupcake.name() == "Cupcake" }
     assertTrue { cupcake.price() == BigDecimal.ONE }
   }
 
   @Test
-  internal fun `create a chocolate topping cupcake`() {
+  internal fun `create a chocolate topped cupcake`() {
 
-    val cupcake = cupcakeFactory.createCupcake(Topping.CHOCOLATE)
+    val topping = listOf(Topping.CHOCOLATE)
+    val cupcake = cupcakeFactory.createCupcake(topping)
 
     assertTrue { cupcake.name() == "Chocolate Cupcake" }
     assertTrue { cupcake.price() == BigDecimal("1.1") }
+  }
+
+  @Test
+  internal fun `create a chocolate and nuts topped cupcake`() {
+
+    val topping = listOf(Topping.CHOCOLATE, Topping.NUTS)
+    val cupcake = cupcakeFactory.createCupcake(topping)
+
+    assertTrue { cupcake.name() == "Nuts Chocolate Cupcake" }
+    assertTrue { cupcake.price() == BigDecimal("1.3") }
   }
 }
