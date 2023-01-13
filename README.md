@@ -34,8 +34,8 @@ Cupcake creation:
 Sold Cupcakes
 
 - The price should return 1$ for 🧁
-- The price should return 0.2$ for 🍫
-- The price should return 0.3$ for 🥜
+- The price should return 0.1$ for 🍫
+- The price should return 0.2$ for 🥜
 
 ### Additional Features
 
