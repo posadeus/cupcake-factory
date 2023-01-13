@@ -11,7 +11,7 @@
   <name>cupcake-factory</name>
 
   <properties>
-    <kotlin.version>1.7.20</kotlin.version>
+    <kotlin.version>1.7.0</kotlin.version>
     <junit-jupiter-engine.version>5.8.2</junit-jupiter-engine.version>
     <arrow-core.version>1.1.2</arrow-core.version>
 
@@ -27,7 +27,7 @@
     </dependency>
     <dependency>
       <groupId>org.jetbrains.kotlin</groupId>
-      <artifactId>kotlin-test-junit5</artifactId>
+      <artifactId>kotlin-test-junit</artifactId>
       <version>${kotlin.version}</version>
       <scope>test</scope>
     </dependency>
