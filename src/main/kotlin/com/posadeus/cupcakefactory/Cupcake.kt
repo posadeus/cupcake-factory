@@ -1,3 +1,6 @@
 package com.posadeus.cupcakefactory
 
-object Cupcake
+import java.math.BigDecimal
+
+data class Cupcake(val name: String,
+                   val price: BigDecimal)
