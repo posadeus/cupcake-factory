@@ -5,5 +5,8 @@ import com.posadeus.cupcakefactory.cupcake.Topping
 class BiscuitFactory {
 
   fun createBiscuit(topping: List<Topping>): Biscuit =
-      BaseBiscuit(topping)
+      if (topping.isEmpty())
+        BaseBiscuit(topping)
+      else
+        ChocolateBiscuit(BaseBiscuit(topping))
 }

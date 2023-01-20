@@ -21,6 +21,16 @@ class BiscuitFactoryTest {
     assertTrue { biscuit.price() == Price(BigDecimal("2.00"), USD_CURRENCY) }
   }
 
+  @Test
+  internal fun `create a chocolate topped biscuit`() {
+
+    val topping = listOf(Topping.CHOCOLATE)
+    val biscuit = biscuitFactory.createBiscuit(topping)
+
+    assertTrue { biscuit.name() == "Chocolate Biscuit" }
+    assertTrue { biscuit.price() == Price(BigDecimal("2.10"), USD_CURRENCY) }
+  }
+
   companion object {
 
     private val USD_CURRENCY = Currency.getInstance("USD")
