@@ -1,8 +1,9 @@
 package com.posadeus.cupcakefactory.cupcake
 
 import com.posadeus.cupcakefactory.common.Price
-import com.posadeus.cupcakefactory.cupcake.Topping.CHOCOLATE
-import com.posadeus.cupcakefactory.cupcake.Topping.NUTS
+import com.posadeus.cupcakefactory.product.Topping
+import com.posadeus.cupcakefactory.product.Topping.CHOCOLATE
+import com.posadeus.cupcakefactory.product.Topping.NUTS
 import org.junit.jupiter.api.Test
 import java.math.BigDecimal
 import java.util.*
