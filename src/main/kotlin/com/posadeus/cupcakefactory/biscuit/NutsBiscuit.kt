@@ -4,11 +4,12 @@ import com.posadeus.cupcakefactory.common.Price
 import java.math.BigDecimal
 import java.util.*
 
-class BaseBiscuit : Biscuit {
+class NutsBiscuit(private val biscuit: Biscuit) : Biscuit {
 
   override fun name(): String =
-      "Biscuit"
+      "Nuts ${biscuit.name()}"
 
   override fun price(): Price =
-      Price(BigDecimal("2.00"), Currency.getInstance("USD"))
+      Price(BigDecimal("0.20").plus(biscuit.price().value),
+            Currency.getInstance("USD"))
 }
