@@ -1,6 +1,7 @@
 package com.posadeus.cupcakefactory.cupcake
 
 import com.posadeus.cupcakefactory.cupcake.Topping.*
+import com.posadeus.cupcakefactory.product.Cupcake
 
 class CupcakeFactory {
 

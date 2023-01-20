@@ -1,7 +1,7 @@
 package com.posadeus.cupcakefactory.checkout
 
-import com.posadeus.cupcakefactory.cupcake.Cupcake
 import com.posadeus.cupcakefactory.cupcake.CupcakeFactory
+import com.posadeus.cupcakefactory.product.Cupcake
 
 class Command(private val cupcakeFactory: CupcakeFactory) {
 

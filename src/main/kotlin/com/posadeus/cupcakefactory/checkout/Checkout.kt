@@ -1,7 +1,7 @@
 package com.posadeus.cupcakefactory.checkout
 
 import com.posadeus.cupcakefactory.common.Price
-import com.posadeus.cupcakefactory.cupcake.Cupcake
+import com.posadeus.cupcakefactory.product.Cupcake
 import java.math.BigDecimal
 import java.util.*
 
