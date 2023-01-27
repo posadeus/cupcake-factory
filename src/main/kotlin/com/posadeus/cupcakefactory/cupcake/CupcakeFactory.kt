@@ -4,6 +4,7 @@ import com.posadeus.cupcakefactory.product.AvailableTopping
 import com.posadeus.cupcakefactory.product.AvailableTopping.*
 import com.posadeus.cupcakefactory.product.Cupcake
 import com.posadeus.cupcakefactory.product.topping.ChocolateTopping
+import com.posadeus.cupcakefactory.product.topping.NutsTopping
 
 class CupcakeFactory {
 
@@ -15,7 +16,7 @@ class CupcakeFactory {
         else
           when (availableTopping.first()) {
             CHOCOLATE -> ChocolateTopping(go(availableTopping.drop(1)))
-            NUTS -> NutsCupcake(go(availableTopping.drop(1)))
+            NUTS -> NutsTopping(go(availableTopping.drop(1)))
             VANILLA -> VanillaCupcake(go(availableTopping.drop(1)))
             WHIPPED_CREAM -> WhippedCreamCupcake(go(availableTopping.drop(1)))
           }
