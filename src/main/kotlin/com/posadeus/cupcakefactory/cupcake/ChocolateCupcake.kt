@@ -1,12 +1,12 @@
 package com.posadeus.cupcakefactory.cupcake
 
 import com.posadeus.cupcakefactory.common.Price
-import com.posadeus.cupcakefactory.product.Cupcake
 import com.posadeus.cupcakefactory.product.Product
+import com.posadeus.cupcakefactory.product.Topping
 import java.math.BigDecimal
 import java.util.*
 
-class ChocolateCupcake(private val product: Product) : Cupcake {
+class ChocolateCupcake(private val product: Product) : Topping() {
 
   override fun name(): String =
       "Chocolate ${product.name()}"

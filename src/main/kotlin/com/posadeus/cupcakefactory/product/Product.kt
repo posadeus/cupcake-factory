@@ -11,3 +11,10 @@ sealed interface Product {
 
 interface Cupcake : Product
 interface Biscuit : Product
+
+abstract class Topping : Cupcake, Biscuit {
+
+  abstract override fun name(): String
+
+  abstract override fun price(): Price
+}
