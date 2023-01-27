@@ -6,7 +6,7 @@ import com.posadeus.cupcakefactory.product.Topping
 import java.math.BigDecimal
 import java.util.*
 
-class ChocolateCupcake(private val product: Product) : Topping() {
+class ChocolateTopping(private val product: Product) : Topping() {
 
   override fun name(): String =
       "Chocolate ${product.name()}"

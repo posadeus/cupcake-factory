@@ -13,7 +13,7 @@ class CupcakeFactory {
           BaseCupcake()
         else
           when (availableTopping.first()) {
-            CHOCOLATE -> ChocolateCupcake(go(availableTopping.drop(1)))
+            CHOCOLATE -> ChocolateTopping(go(availableTopping.drop(1)))
             NUTS -> NutsCupcake(go(availableTopping.drop(1)))
             VANILLA -> VanillaCupcake(go(availableTopping.drop(1)))
             WHIPPED_CREAM -> WhippedCreamCupcake(go(availableTopping.drop(1)))

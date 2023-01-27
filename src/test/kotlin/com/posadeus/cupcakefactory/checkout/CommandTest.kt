@@ -52,7 +52,7 @@ class CommandTest {
 
     private val A_TOPPING = AvailableTopping.CHOCOLATE
     private val ANOTHER_TOPPING = AvailableTopping.NUTS
-    private val A_CUPCAKE = ChocolateCupcake(BaseCupcake())
+    private val A_CUPCAKE = ChocolateTopping(BaseCupcake())
     private val ANOTHER_CUPCAKE = BaseCupcake()
   }
 }

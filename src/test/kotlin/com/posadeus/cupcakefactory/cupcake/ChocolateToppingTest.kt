@@ -9,18 +9,18 @@ import org.junit.jupiter.api.Test
 import java.math.BigDecimal
 import java.util.*
 
-internal class ChocolateCupcakeTest {
+internal class ChocolateToppingTest {
 
   private val product: Product = mockk()
 
-  private val chocolateCupcake = ChocolateCupcake(product)
+  private val chocolateTopping = ChocolateTopping(product)
 
   @Test
   internal fun `name starts with Chocolate`() {
 
     every { product.name() } returns "Cupcake"
 
-    assertTrue { chocolateCupcake.name() == "Chocolate Cupcake" }
+    assertTrue { chocolateTopping.name() == "Chocolate Cupcake" }
   }
 
   @Test
@@ -30,6 +30,6 @@ internal class ChocolateCupcakeTest {
 
     every { product.price() } returns price
 
-    assertTrue { chocolateCupcake.price() == Price(BigDecimal("1.10"), Currency.getInstance("USD")) }
+    assertTrue { chocolateTopping.price() == Price(BigDecimal("1.10"), Currency.getInstance("USD")) }
   }
 }
