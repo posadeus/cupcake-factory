@@ -18,9 +18,9 @@ internal class ChocolateToppingTest {
   @Test
   internal fun `name starts with Chocolate`() {
 
-    every { product.name() } returns "Cupcake"
+    every { product.name() } returns A_PRODUCT_NAME
 
-    assertTrue { chocolateTopping.name() == "Chocolate Cupcake" }
+    assertTrue { chocolateTopping.name() == "Chocolate $A_PRODUCT_NAME" }
   }
 
   @Test
@@ -31,5 +31,10 @@ internal class ChocolateToppingTest {
     every { product.price() } returns price
 
     assertTrue { chocolateTopping.price() == Price(BigDecimal("1.10"), Currency.getInstance("USD")) }
+  }
+
+  companion object {
+
+    private const val A_PRODUCT_NAME = "A_PRODUCT_NAME"
   }
 }
