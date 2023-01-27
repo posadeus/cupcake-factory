@@ -1,8 +1,10 @@
 package com.posadeus.cupcakefactory.biscuit
 
 import com.posadeus.cupcakefactory.common.Price
+import com.posadeus.cupcakefactory.common.exception.ToppingNotAllowedException
 import com.posadeus.cupcakefactory.product.AvailableTopping
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 import java.math.BigDecimal
 import java.util.*
 import kotlin.test.assertTrue
@@ -49,6 +51,14 @@ class BiscuitFactoryTest {
 
     assertTrue { biscuit.name() == "Nuts Biscuit" }
     assertTrue { biscuit.price() == Price(BigDecimal("2.20"), USD_CURRENCY) }
+  }
+
+  @Test
+  internal fun `topping not for biscuits cannot be applied`() {
+
+    val availableTopping = listOf(AvailableTopping.VANILLA)
+
+    assertThrows<ToppingNotAllowedException> { biscuitFactory.createBiscuit(availableTopping) }
   }
 
   companion object {
