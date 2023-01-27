@@ -1,7 +1,9 @@
 package com.posadeus.cupcakefactory.checkout
 
-import com.posadeus.cupcakefactory.cupcake.*
+import com.posadeus.cupcakefactory.cupcake.BaseCupcake
+import com.posadeus.cupcakefactory.cupcake.CupcakeFactory
 import com.posadeus.cupcakefactory.product.AvailableTopping
+import com.posadeus.cupcakefactory.product.topping.ChocolateTopping
 import io.mockk.every
 import io.mockk.mockk
 import org.junit.jupiter.api.Test

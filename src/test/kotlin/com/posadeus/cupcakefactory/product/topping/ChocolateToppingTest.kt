@@ -1,4 +1,4 @@
-package com.posadeus.cupcakefactory.cupcake
+package com.posadeus.cupcakefactory.product.topping
 
 import com.posadeus.cupcakefactory.common.Price
 import com.posadeus.cupcakefactory.product.Product
