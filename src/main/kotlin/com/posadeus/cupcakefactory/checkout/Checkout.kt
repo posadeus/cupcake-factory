@@ -1,18 +1,18 @@
 package com.posadeus.cupcakefactory.checkout
 
 import com.posadeus.cupcakefactory.common.Price
-import com.posadeus.cupcakefactory.product.Cupcake
+import com.posadeus.cupcakefactory.product.Product
 import java.math.BigDecimal
 import java.util.*
 
 class Checkout {
 
-  fun price(cupcakes: List<Cupcake>): Price =
-      if (cupcakes.isEmpty())
+  fun price(products: List<Product>): Price =
+      if (products.isEmpty())
         Price(BigDecimal("0.00"), Currency.getInstance("USD"))
       else
-        Price(cupcakes
+        Price(products
                   .map { it.price().value }
-                  .reduce { acc, singleCupcakePrice -> acc.plus(singleCupcakePrice) },
+                  .reduce { acc, singleProductPrice -> acc.plus(singleProductPrice) },
               Currency.getInstance("USD"))
 }

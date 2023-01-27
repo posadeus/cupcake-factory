@@ -1,5 +1,6 @@
 package com.posadeus.cupcakefactory.checkout
 
+import com.posadeus.cupcakefactory.biscuit.BaseBiscuit
 import com.posadeus.cupcakefactory.common.Price
 import com.posadeus.cupcakefactory.cupcake.BaseCupcake
 import com.posadeus.cupcakefactory.product.topping.ChocolateTopping
@@ -42,5 +43,13 @@ class CheckoutTest {
     val price = Price(BigDecimal("2.10"), Currency.getInstance("USD"))
 
     assertTrue { checkout.price(listOf(BaseCupcake(), ChocolateTopping(BaseCupcake()))) == price }
+  }
+
+  @Test
+  internal fun `the price of a base biscuit is TWO`() {
+
+    val price = Price(BigDecimal("2.00"), Currency.getInstance("USD"))
+
+    assertTrue { checkout.price(listOf(BaseBiscuit())) == price }
   }
 }
