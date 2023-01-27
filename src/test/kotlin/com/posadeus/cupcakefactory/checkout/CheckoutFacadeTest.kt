@@ -2,6 +2,7 @@ package com.posadeus.cupcakefactory.checkout
 
 import com.posadeus.cupcakefactory.common.Price
 import com.posadeus.cupcakefactory.cupcake.BaseCupcake
+import com.posadeus.cupcakefactory.product.AvailableProducts.CUPCAKE
 import io.mockk.every
 import io.mockk.mockk
 import org.junit.jupiter.api.Test
@@ -30,8 +31,8 @@ class CheckoutFacadeTest {
 
   companion object {
 
-    private val AN_ORDER = Order(emptyList())
-    private val ANOTHER_ORDER = Order(emptyList())
+    private val AN_ORDER = Order(CUPCAKE, emptyList())
+    private val ANOTHER_ORDER = Order(CUPCAKE, emptyList())
     private val A_CUPCAKE = BaseCupcake()
     private val ANOTHER_CUPCAKE = BaseCupcake()
     private val A_PRICE = Price(BigDecimal.TEN, Currency.getInstance("USD"))
