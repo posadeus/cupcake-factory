@@ -2,6 +2,7 @@ package com.posadeus.cupcakefactory.biscuit
 
 import com.posadeus.cupcakefactory.product.AvailableTopping
 import com.posadeus.cupcakefactory.product.Biscuit
+import com.posadeus.cupcakefactory.product.topping.ChocolateTopping
 
 class BiscuitFactory {
 
@@ -12,7 +13,7 @@ class BiscuitFactory {
           BaseBiscuit()
         else
           if (availableTopping.first() == AvailableTopping.CHOCOLATE)
-            ChocolateBiscuit(go(availableTopping.drop(1)))
+            ChocolateTopping(go(availableTopping.drop(1)))
           else if (availableTopping.first() == AvailableTopping.NUTS)
             NutsBiscuit(go(availableTopping.drop(1)))
           else
