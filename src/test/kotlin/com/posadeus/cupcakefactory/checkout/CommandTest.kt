@@ -1,7 +1,7 @@
 package com.posadeus.cupcakefactory.checkout
 
 import com.posadeus.cupcakefactory.cupcake.*
-import com.posadeus.cupcakefactory.product.Topping
+import com.posadeus.cupcakefactory.product.AvailableTopping
 import io.mockk.every
 import io.mockk.mockk
 import org.junit.jupiter.api.Test
@@ -50,8 +50,8 @@ class CommandTest {
 
   companion object {
 
-    private val A_TOPPING = Topping.CHOCOLATE
-    private val ANOTHER_TOPPING = Topping.NUTS
+    private val A_TOPPING = AvailableTopping.CHOCOLATE
+    private val ANOTHER_TOPPING = AvailableTopping.NUTS
     private val A_CUPCAKE = ChocolateCupcake(BaseCupcake())
     private val ANOTHER_CUPCAKE = BaseCupcake()
   }

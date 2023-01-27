@@ -1,23 +1,23 @@
 package com.posadeus.cupcakefactory.biscuit
 
+import com.posadeus.cupcakefactory.product.AvailableTopping
 import com.posadeus.cupcakefactory.product.Biscuit
-import com.posadeus.cupcakefactory.product.Topping
 
 class BiscuitFactory {
 
-  fun createBiscuit(topping: List<Topping>): Biscuit {
+  fun createBiscuit(availableTopping: List<AvailableTopping>): Biscuit {
 
-    fun go(topping: List<Topping>): Biscuit =
-        if (topping.isEmpty())
+    fun go(availableTopping: List<AvailableTopping>): Biscuit =
+        if (availableTopping.isEmpty())
           BaseBiscuit()
         else
-          if (topping.first() == Topping.CHOCOLATE)
-            ChocolateBiscuit(go(topping.drop(1)))
-          else if (topping.first() == Topping.NUTS)
-            NutsBiscuit(go(topping.drop(1)))
+          if (availableTopping.first() == AvailableTopping.CHOCOLATE)
+            ChocolateBiscuit(go(availableTopping.drop(1)))
+          else if (availableTopping.first() == AvailableTopping.NUTS)
+            NutsBiscuit(go(availableTopping.drop(1)))
           else
             BaseBiscuit()
 
-    return go(topping.asReversed())
+    return go(availableTopping.asReversed())
   }
 }

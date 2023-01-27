@@ -1,6 +1,6 @@
 package com.posadeus.cupcakefactory.product
 
-enum class Topping {
+enum class AvailableTopping {
 
   CHOCOLATE,
   NUTS,

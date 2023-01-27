@@ -1,24 +1,24 @@
 package com.posadeus.cupcakefactory.cupcake
 
+import com.posadeus.cupcakefactory.product.AvailableTopping
+import com.posadeus.cupcakefactory.product.AvailableTopping.*
 import com.posadeus.cupcakefactory.product.Cupcake
-import com.posadeus.cupcakefactory.product.Topping
-import com.posadeus.cupcakefactory.product.Topping.*
 
 class CupcakeFactory {
 
-  fun createCupcake(topping: List<Topping>): Cupcake {
+  fun createCupcake(availableTopping: List<AvailableTopping>): Cupcake {
 
-    fun go(topping: List<Topping>): Cupcake =
-        if (topping.isEmpty())
+    fun go(availableTopping: List<AvailableTopping>): Cupcake =
+        if (availableTopping.isEmpty())
           BaseCupcake()
         else
-          when (topping.first()) {
-            CHOCOLATE -> ChocolateCupcake(go(topping.drop(1)))
-            NUTS -> NutsCupcake(go(topping.drop(1)))
-            VANILLA -> VanillaCupcake(go(topping.drop(1)))
-            WHIPPED_CREAM -> WhippedCreamCupcake(go(topping.drop(1)))
+          when (availableTopping.first()) {
+            CHOCOLATE -> ChocolateCupcake(go(availableTopping.drop(1)))
+            NUTS -> NutsCupcake(go(availableTopping.drop(1)))
+            VANILLA -> VanillaCupcake(go(availableTopping.drop(1)))
+            WHIPPED_CREAM -> WhippedCreamCupcake(go(availableTopping.drop(1)))
           }
 
-    return go(topping.asReversed())
+    return go(availableTopping.asReversed())
   }
 }
