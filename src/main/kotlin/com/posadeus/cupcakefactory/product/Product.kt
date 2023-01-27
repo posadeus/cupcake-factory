@@ -18,3 +18,10 @@ abstract class Topping : Cupcake, Biscuit {
 
   abstract override fun price(): Price
 }
+
+abstract class CupcakeTopping : Cupcake {
+
+  abstract override fun name(): String
+
+  abstract override fun price(): Price
+}
