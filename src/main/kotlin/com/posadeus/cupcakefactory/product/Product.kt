@@ -27,9 +27,16 @@ abstract class Topping(open val product: Product) : Cupcake, Biscuit {
   protected abstract fun getPrice(): BigDecimal
 }
 
-abstract class CupcakeTopping : Cupcake {
+abstract class CupcakeTopping(open val cupcake: Cupcake) : Cupcake {
 
-  abstract override fun name(): String
+  override fun name(): String =
+      "${getName()} ${cupcake.name()}"
 
-  abstract override fun price(): Price
+  override fun price(): Price =
+      Price(getPrice().plus(cupcake.price().value),
+            cupcake.price().currency)
+
+  protected abstract fun getName(): String
+
+  protected abstract fun getPrice(): BigDecimal
 }

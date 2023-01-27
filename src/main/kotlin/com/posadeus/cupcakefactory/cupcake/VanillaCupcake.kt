@@ -1,17 +1,14 @@
 package com.posadeus.cupcakefactory.cupcake
 
-import com.posadeus.cupcakefactory.common.Price
 import com.posadeus.cupcakefactory.product.Cupcake
 import com.posadeus.cupcakefactory.product.CupcakeTopping
 import java.math.BigDecimal
-import java.util.*
 
-class VanillaCupcake(private val cupcake: Cupcake) : CupcakeTopping() {
+class VanillaCupcake(override val cupcake: Cupcake) : CupcakeTopping(cupcake) {
 
-  override fun name(): String =
-      "Vanilla ${cupcake.name()}"
+  override fun getName(): String =
+      "Vanilla"
 
-  override fun price(): Price =
-      Price(BigDecimal("0.25").plus(cupcake.price().value),
-            Currency.getInstance("USD"))
+  override fun getPrice(): BigDecimal =
+      BigDecimal("0.25")
 }
