@@ -66,6 +66,19 @@ class CommandTest {
     assertTrue { command.order(orders) == listOf(A_BISCUIT) }
   }
 
+  @Test
+  internal fun `command a biscuit and a cupcake`() {
+
+    val order1 = Order(BISCUIT, listOf(A_TOPPING))
+    val order2 = Order(CUPCAKE, listOf(A_TOPPING))
+    val orders = listOf(order1, order2)
+
+    every { biscuitFactory.createBiscuit(listOf(A_TOPPING)) } returns A_BISCUIT
+    every { cupcakeFactory.createCupcake(listOf(A_TOPPING)) } returns A_CUPCAKE
+
+    assertTrue { command.order(orders) == listOf(A_BISCUIT, A_CUPCAKE) }
+  }
+
   companion object {
 
     private val A_TOPPING = AvailableTopping.CHOCOLATE
