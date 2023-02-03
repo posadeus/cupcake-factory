@@ -1,10 +1,8 @@
 package com.posadeus.cupcakefactory.cupcake
 
+import com.posadeus.cupcakefactory.product.AvailableProducts.CUPCAKE
 import com.posadeus.cupcakefactory.product.AvailableTopping
-import com.posadeus.cupcakefactory.product.AvailableTopping.*
 import com.posadeus.cupcakefactory.product.Cupcake
-import com.posadeus.cupcakefactory.product.topping.ChocolateTopping
-import com.posadeus.cupcakefactory.product.topping.NutsTopping
 
 class CupcakeFactory {
 
@@ -14,12 +12,7 @@ class CupcakeFactory {
         if (availableTopping.isEmpty())
           BaseCupcake()
         else
-          when (availableTopping.first()) {
-            CHOCOLATE -> ChocolateTopping(go(availableTopping.drop(1)))
-            NUTS -> NutsTopping(go(availableTopping.drop(1)))
-            VANILLA -> VanillaCupcake(go(availableTopping.drop(1)))
-            WHIPPED_CREAM -> WhippedCreamCupcake(go(availableTopping.drop(1)))
-          }
+          availableTopping.first().applyOn(CUPCAKE, go(availableTopping.drop(1)))
 
     return go(availableTopping.asReversed())
   }
