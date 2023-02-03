@@ -7,7 +7,6 @@ import io.mockk.every
 import io.mockk.mockk
 import org.junit.jupiter.api.Test
 import java.math.BigDecimal
-import java.util.*
 import kotlin.test.assertTrue
 
 class CheckoutFacadeTest {
@@ -35,6 +34,6 @@ class CheckoutFacadeTest {
     private val ANOTHER_ORDER = Order(CUPCAKE, emptyList())
     private val A_CUPCAKE = BaseCupcake()
     private val ANOTHER_CUPCAKE = BaseCupcake()
-    private val A_PRICE = Price(BigDecimal.TEN, Currency.getInstance("USD"))
+    private val A_PRICE = Price(BigDecimal.TEN)
   }
 }

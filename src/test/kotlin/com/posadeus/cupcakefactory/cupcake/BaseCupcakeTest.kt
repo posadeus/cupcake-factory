@@ -4,7 +4,6 @@ import com.posadeus.cupcakefactory.common.Price
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import java.math.BigDecimal
-import java.util.*
 
 internal class BaseCupcakeTest {
 
@@ -19,6 +18,6 @@ internal class BaseCupcakeTest {
   @Test
   internal fun `price is 1,00 USD`() {
 
-    assertTrue { cupcake.price() == Price(BigDecimal("1.00"), Currency.getInstance("USD")) }
+    assertTrue { cupcake.price() == Price(BigDecimal("1.00")) }
   }
 }
