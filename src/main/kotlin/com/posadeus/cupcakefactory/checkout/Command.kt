@@ -12,7 +12,7 @@ class Command(private val cupcakeFactory: CupcakeFactory,
   fun order(orders: List<Order>): List<Product> =
       orders.map {
         when (it.baseProduct) {
-          CUPCAKE -> cupcakeFactory.createCupcake(it.availableToppings)
+          CUPCAKE -> cupcakeFactory.createCupcake(CUPCAKE, it.availableToppings)
           BISCUIT -> biscuitFactory.createBiscuit(it.availableToppings)
         }
       }
