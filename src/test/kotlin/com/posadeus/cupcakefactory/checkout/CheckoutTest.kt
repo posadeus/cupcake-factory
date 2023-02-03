@@ -1,8 +1,8 @@
 package com.posadeus.cupcakefactory.checkout
 
-import com.posadeus.cupcakefactory.biscuit.BaseBiscuit
 import com.posadeus.cupcakefactory.common.Price
-import com.posadeus.cupcakefactory.cupcake.BaseCupcake
+import com.posadeus.cupcakefactory.product.Biscuit
+import com.posadeus.cupcakefactory.product.Cupcake
 import org.junit.jupiter.api.Test
 import java.math.BigDecimal
 import kotlin.test.assertTrue
@@ -24,7 +24,7 @@ class CheckoutTest {
 
     val price = Price(BigDecimal("1.00"))
 
-    assertTrue { checkout.price(listOf(BaseCupcake())) == price }
+    assertTrue { checkout.price(listOf(Cupcake)) == price }
   }
 
   @Test
@@ -32,7 +32,7 @@ class CheckoutTest {
 
     val price = Price(BigDecimal("2.00"))
 
-    assertTrue { checkout.price(listOf(BaseCupcake(), BaseCupcake())) == price }
+    assertTrue { checkout.price(listOf(Cupcake, Cupcake)) == price }
   }
 
   @Test
@@ -40,6 +40,6 @@ class CheckoutTest {
 
     val price = Price(BigDecimal("2.00"))
 
-    assertTrue { checkout.price(listOf(BaseBiscuit())) == price }
+    assertTrue { checkout.price(listOf(Biscuit)) == price }
   }
 }
