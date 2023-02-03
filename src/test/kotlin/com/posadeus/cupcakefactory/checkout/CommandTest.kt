@@ -6,7 +6,6 @@ import com.posadeus.cupcakefactory.cupcake.ProductFactory
 import com.posadeus.cupcakefactory.product.AvailableProducts.BISCUIT
 import com.posadeus.cupcakefactory.product.AvailableProducts.CUPCAKE
 import com.posadeus.cupcakefactory.product.AvailableTopping
-import com.posadeus.cupcakefactory.product.topping.ChocolateTopping
 import io.mockk.every
 import io.mockk.mockk
 import org.junit.jupiter.api.Test
@@ -81,8 +80,8 @@ class CommandTest {
 
     private val A_TOPPING = AvailableTopping.CHOCOLATE
     private val ANOTHER_TOPPING = AvailableTopping.NUTS
-    private val A_CUPCAKE = ChocolateTopping(BaseCupcake())
-    private val A_BISCUIT = ChocolateTopping(BaseBiscuit())
+    private val A_CUPCAKE = BaseCupcake()
+    private val A_BISCUIT = BaseBiscuit()
     private val ANOTHER_CUPCAKE = BaseCupcake()
   }
 }
