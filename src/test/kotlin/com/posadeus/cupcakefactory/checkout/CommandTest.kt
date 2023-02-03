@@ -1,7 +1,6 @@
 package com.posadeus.cupcakefactory.checkout
 
 import com.posadeus.cupcakefactory.biscuit.BaseBiscuit
-import com.posadeus.cupcakefactory.biscuit.BiscuitFactory
 import com.posadeus.cupcakefactory.cupcake.BaseCupcake
 import com.posadeus.cupcakefactory.cupcake.ProductFactory
 import com.posadeus.cupcakefactory.product.AvailableProducts.BISCUIT
@@ -16,9 +15,8 @@ import kotlin.test.assertTrue
 class CommandTest {
 
   private val productFactory: ProductFactory = mockk()
-  private val biscuitFactory: BiscuitFactory = mockk()
 
-  private val command = Command(productFactory, biscuitFactory)
+  private val command = Command(productFactory)
 
   @Test
   internal fun `command a cupcake`() {
@@ -61,7 +59,7 @@ class CommandTest {
     val order = Order(BISCUIT, listOf(A_TOPPING))
     val orders = listOf(order)
 
-    every { biscuitFactory.createBiscuit(listOf(A_TOPPING)) } returns A_BISCUIT
+    every { productFactory.createProduct(BISCUIT, listOf(A_TOPPING)) } returns A_BISCUIT
 
     assertTrue { command.order(orders) == listOf(A_BISCUIT) }
   }
@@ -73,7 +71,7 @@ class CommandTest {
     val order2 = Order(CUPCAKE, listOf(A_TOPPING))
     val orders = listOf(order1, order2)
 
-    every { biscuitFactory.createBiscuit(listOf(A_TOPPING)) } returns A_BISCUIT
+    every { productFactory.createProduct(BISCUIT, listOf(A_TOPPING)) } returns A_BISCUIT
     every { productFactory.createProduct(CUPCAKE, listOf(A_TOPPING)) } returns A_CUPCAKE
 
     assertTrue { command.order(orders) == listOf(A_BISCUIT, A_CUPCAKE) }
