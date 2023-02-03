@@ -1,5 +1,6 @@
 package com.posadeus.cupcakefactory.product
 
+import com.posadeus.cupcakefactory.common.Price
 import com.posadeus.cupcakefactory.common.exception.ToppingNotAllowedException
 import com.posadeus.cupcakefactory.product.AvailableProducts.BISCUIT
 import com.posadeus.cupcakefactory.product.AvailableProducts.CUPCAKE
@@ -24,5 +25,12 @@ enum class AvailableTopping(private val toppingName: String,
       this.applicableOn.contains(product)
 
   private fun applyTopping(product: Product): Product =
-      ToppedProduct(product, this.toppingName, this.price)
+      ToppedProduct(name(product), price(product))
+
+  private fun name(product: Product): String =
+      "$toppingName ${product.name()}"
+
+  private fun price(product: Product): Price =
+      Price(price.plus(product.price().value),
+            product.price().currency)
 }
