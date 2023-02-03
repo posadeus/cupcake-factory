@@ -1,6 +1,4 @@
-package com.posadeus.cupcakefactory.cupcake
-
-import com.posadeus.cupcakefactory.product.*
+package com.posadeus.cupcakefactory.product
 
 class ProductFactory {
 

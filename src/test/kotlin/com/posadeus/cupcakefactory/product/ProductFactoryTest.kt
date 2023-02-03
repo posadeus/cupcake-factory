@@ -1,10 +1,9 @@
-package com.posadeus.cupcakefactory.cupcake
+package com.posadeus.cupcakefactory.product
 
 import com.posadeus.cupcakefactory.common.Price
 import com.posadeus.cupcakefactory.common.exception.ToppingNotAllowedException
 import com.posadeus.cupcakefactory.product.AvailableProducts.BISCUIT
 import com.posadeus.cupcakefactory.product.AvailableProducts.CUPCAKE
-import com.posadeus.cupcakefactory.product.AvailableTopping
 import com.posadeus.cupcakefactory.product.AvailableTopping.CHOCOLATE
 import com.posadeus.cupcakefactory.product.AvailableTopping.NUTS
 import org.junit.jupiter.api.Test

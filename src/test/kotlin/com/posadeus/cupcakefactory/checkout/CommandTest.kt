@@ -2,7 +2,7 @@ package com.posadeus.cupcakefactory.checkout
 
 import com.posadeus.cupcakefactory.biscuit.BaseBiscuit
 import com.posadeus.cupcakefactory.cupcake.BaseCupcake
-import com.posadeus.cupcakefactory.cupcake.ProductFactory
+import com.posadeus.cupcakefactory.product.ProductFactory
 import com.posadeus.cupcakefactory.product.AvailableProducts.BISCUIT
 import com.posadeus.cupcakefactory.product.AvailableProducts.CUPCAKE
 import com.posadeus.cupcakefactory.product.AvailableTopping
