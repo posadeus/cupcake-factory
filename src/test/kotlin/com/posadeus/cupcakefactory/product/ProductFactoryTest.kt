@@ -4,8 +4,7 @@ import com.posadeus.cupcakefactory.common.Price
 import com.posadeus.cupcakefactory.common.exception.ToppingNotAllowedException
 import com.posadeus.cupcakefactory.product.AvailableProducts.BISCUIT
 import com.posadeus.cupcakefactory.product.AvailableProducts.CUPCAKE
-import com.posadeus.cupcakefactory.product.AvailableTopping.CHOCOLATE
-import com.posadeus.cupcakefactory.product.AvailableTopping.NUTS
+import com.posadeus.cupcakefactory.product.AvailableTopping.*
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import java.math.BigDecimal
@@ -96,9 +95,17 @@ class ProductFactoryTest {
   }
 
   @Test
-  internal fun `topping not for biscuits cannot be applied`() {
+  internal fun `topping not for biscuits cannot be applied - Vanilla`() {
 
-    val availableTopping = listOf(AvailableTopping.VANILLA)
+    val availableTopping = listOf(VANILLA)
+
+    assertThrows<ToppingNotAllowedException> { productFactory.createProduct(BISCUIT, availableTopping) }
+  }
+
+  @Test
+  internal fun `topping not for biscuits cannot be applied - Whipped Cream`() {
+
+    val availableTopping = listOf(WHIPPED_CREAM)
 
     assertThrows<ToppingNotAllowedException> { productFactory.createProduct(BISCUIT, availableTopping) }
   }
