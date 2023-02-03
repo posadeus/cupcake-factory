@@ -20,12 +20,10 @@ enum class AvailableTopping(private val toppingName: String,
       else
         throw ToppingNotAllowedException
 
-  private fun applyTopping(cupcake: Cupcake): Cupcake {
-
-    return ToppedCupcake(cupcake, this.toppingName, this.price)
-  }
-
   private fun canApplyOn(product: AvailableProducts): Boolean =
       this.applicableOn.contains(product)
+
+  private fun applyTopping(cupcake: Cupcake): Cupcake =
+      ToppedCupcake(cupcake, this.toppingName, this.price)
 
 }
