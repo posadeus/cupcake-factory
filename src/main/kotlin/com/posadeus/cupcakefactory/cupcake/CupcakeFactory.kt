@@ -1,6 +1,7 @@
 package com.posadeus.cupcakefactory.cupcake
 
 import com.posadeus.cupcakefactory.product.*
+import com.posadeus.cupcakefactory.product.AvailableProducts.CUPCAKE
 
 class CupcakeFactory {
 
@@ -8,7 +9,10 @@ class CupcakeFactory {
 
     fun go(availableTopping: List<AvailableTopping>): Cupcake =
         if (availableTopping.isEmpty())
-          BaseCupcake()
+          when(productType) {
+            CUPCAKE -> BaseCupcake()
+            else -> BaseCupcake() // FIXME
+          }
         else
           availableTopping.first().applyOn(productType, go(availableTopping.drop(1)))
 
