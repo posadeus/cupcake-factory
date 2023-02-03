@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import java.math.BigDecimal
 
-internal class BaseCupcakeTest {
+internal class CupcakeTest {
 
   private val cupcake = Cupcake
 
