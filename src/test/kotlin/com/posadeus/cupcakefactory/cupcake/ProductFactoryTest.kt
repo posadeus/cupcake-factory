@@ -10,15 +10,15 @@ import java.math.BigDecimal
 import java.util.*
 import kotlin.test.assertTrue
 
-class CupcakeFactoryTest {
+class ProductFactoryTest {
 
-  private val cupcakeFactory = CupcakeFactory()
+  private val productFactory = ProductFactory()
 
   @Test
   internal fun `create a cupcake with name and price`() {
 
     val availableTopping = emptyList<AvailableTopping>()
-    val cupcake = cupcakeFactory.createCupcake(CUPCAKE, availableTopping)
+    val cupcake = productFactory.createProduct(CUPCAKE, availableTopping)
 
     assertTrue { cupcake.name() == "Cupcake" }
     assertTrue { cupcake.price() == Price(BigDecimal("1.00"), USD_CURRENCY) }
@@ -28,7 +28,7 @@ class CupcakeFactoryTest {
   internal fun `create a chocolate topped cupcake`() {
 
     val topping = listOf(CHOCOLATE)
-    val cupcake = cupcakeFactory.createCupcake(CUPCAKE, topping)
+    val cupcake = productFactory.createProduct(CUPCAKE, topping)
 
     assertTrue { cupcake.name() == "Chocolate Cupcake" }
     assertTrue { cupcake.price() == Price(BigDecimal("1.10"), USD_CURRENCY) }
@@ -38,7 +38,7 @@ class CupcakeFactoryTest {
   internal fun `create a chocolate and nuts topped cupcake`() {
 
     val topping = listOf(CHOCOLATE, NUTS)
-    val cupcake = cupcakeFactory.createCupcake(CUPCAKE, topping)
+    val cupcake = productFactory.createProduct(CUPCAKE, topping)
 
     assertTrue { cupcake.name() == "Nuts Chocolate Cupcake" }
     assertTrue { cupcake.price() == Price(BigDecimal("1.30"), USD_CURRENCY) }
@@ -48,7 +48,7 @@ class CupcakeFactoryTest {
   internal fun `create a nuts and chocolate topped cupcake`() {
 
     val topping = listOf(NUTS, CHOCOLATE)
-    val cupcake = cupcakeFactory.createCupcake(CUPCAKE, topping)
+    val cupcake = productFactory.createProduct(CUPCAKE, topping)
 
     assertTrue { cupcake.name() == "Chocolate Nuts Cupcake" }
     assertTrue { cupcake.price() == Price(BigDecimal("1.30"), USD_CURRENCY) }

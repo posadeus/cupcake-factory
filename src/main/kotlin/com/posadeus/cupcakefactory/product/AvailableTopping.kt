@@ -14,16 +14,15 @@ enum class AvailableTopping(private val toppingName: String,
   VANILLA("Vanilla", BigDecimal("0.25"), listOf(CUPCAKE)),
   WHIPPED_CREAM("Whipped Cream", BigDecimal("0.30"), listOf(CUPCAKE));
 
-  fun applyOn(product: AvailableProducts, cupcake: Cupcake): Cupcake =
-      if (canApplyOn(product))
-        applyTopping(cupcake)
+  fun applyOn(productType: AvailableProducts, product: Product): Product =
+      if (canApplyOn(productType))
+        applyTopping(product)
       else
         throw ToppingNotAllowedException
 
   private fun canApplyOn(product: AvailableProducts): Boolean =
       this.applicableOn.contains(product)
 
-  private fun applyTopping(cupcake: Cupcake): Cupcake =
-      ToppedCupcake(cupcake, this.toppingName, this.price)
-
+  private fun applyTopping(product: Product): Product =
+      ToppedProduct(product, this.toppingName, this.price)
 }
