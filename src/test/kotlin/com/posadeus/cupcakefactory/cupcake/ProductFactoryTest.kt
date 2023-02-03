@@ -1,11 +1,14 @@
 package com.posadeus.cupcakefactory.cupcake
 
 import com.posadeus.cupcakefactory.common.Price
+import com.posadeus.cupcakefactory.common.exception.ToppingNotAllowedException
+import com.posadeus.cupcakefactory.product.AvailableProducts.BISCUIT
 import com.posadeus.cupcakefactory.product.AvailableProducts.CUPCAKE
 import com.posadeus.cupcakefactory.product.AvailableTopping
 import com.posadeus.cupcakefactory.product.AvailableTopping.CHOCOLATE
 import com.posadeus.cupcakefactory.product.AvailableTopping.NUTS
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 import java.math.BigDecimal
 import java.util.*
 import kotlin.test.assertTrue
@@ -52,6 +55,54 @@ class ProductFactoryTest {
 
     assertTrue { cupcake.name() == "Chocolate Nuts Cupcake" }
     assertTrue { cupcake.price() == Price(BigDecimal("1.30"), USD_CURRENCY) }
+  }
+
+  @Test
+  internal fun `create a Biscuit with name and price`() {
+
+    val availableTopping = emptyList<AvailableTopping>()
+    val biscuit = productFactory.createProduct(BISCUIT, availableTopping)
+
+    assertTrue { biscuit.name() == "Biscuit" }
+    assertTrue { biscuit.price() == Price(BigDecimal("2.00"), USD_CURRENCY) }
+  }
+
+  @Test
+  internal fun `create a chocolate topped biscuit`() {
+
+    val availableTopping = listOf(CHOCOLATE)
+    val biscuit = productFactory.createProduct(BISCUIT, availableTopping)
+
+    assertTrue { biscuit.name() == "Chocolate Biscuit" }
+    assertTrue { biscuit.price() == Price(BigDecimal("2.10"), USD_CURRENCY) }
+  }
+
+  @Test
+  internal fun `create a chocolate and nuts topped biscuit`() {
+
+    val availableToppings = listOf(CHOCOLATE, NUTS)
+    val biscuit = productFactory.createProduct(BISCUIT, availableToppings)
+
+    assertTrue { biscuit.name() == "Nuts Chocolate Biscuit" }
+    assertTrue { biscuit.price() == Price(BigDecimal("2.30"), USD_CURRENCY) }
+  }
+
+  @Test
+  internal fun `create a nuts topped biscuit`() {
+
+    val availableTopping = listOf(NUTS)
+    val biscuit = productFactory.createProduct(BISCUIT, availableTopping)
+
+    assertTrue { biscuit.name() == "Nuts Biscuit" }
+    assertTrue { biscuit.price() == Price(BigDecimal("2.20"), USD_CURRENCY) }
+  }
+
+  @Test
+  internal fun `topping not for biscuits cannot be applied`() {
+
+    val availableTopping = listOf(AvailableTopping.VANILLA)
+
+    assertThrows<ToppingNotAllowedException> { productFactory.createProduct(BISCUIT, availableTopping) }
   }
 
   companion object {
