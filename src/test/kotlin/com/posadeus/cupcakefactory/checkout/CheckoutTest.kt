@@ -1,7 +1,7 @@
 package com.posadeus.cupcakefactory.checkout
 
 import com.posadeus.cupcakefactory.common.Price
-import com.posadeus.cupcakefactory.product.*
+import com.posadeus.cupcakefactory.product.Product
 import org.junit.jupiter.api.Test
 import java.math.BigDecimal
 import kotlin.test.assertTrue
@@ -19,27 +19,24 @@ class CheckoutTest {
   }
 
   @Test
-  internal fun `the price of a base cupcake is ONE`() {
+  internal fun `checkout single product`() {
 
-    val price = Price(BigDecimal("1.00"))
+    val product = aProductWith(Price(BigDecimal("1.00")))
+    val expected = Price(BigDecimal("1.00"))
 
-    assertTrue { checkout.price(listOf(Product("Cupcake", Price(BigDecimal("1.00"))))) == price }
+    assertTrue { checkout.price(listOf(product)) == expected }
   }
 
   @Test
-  internal fun `checkout multiple cupcakes`() {
+  internal fun `checkout multiple products`() {
 
-    val price = Price(BigDecimal("2.00"))
+    val firstProduct = aProductWith(Price(BigDecimal("1.00")))
+    val secondProduct = aProductWith(Price(BigDecimal("2.30")))
+    val expected = Price(BigDecimal("3.30"))
 
-    assertTrue { checkout.price(listOf(Product("Cupcake", Price(BigDecimal("1.00"))),
-                                       Product("Cupcake", Price(BigDecimal("1.00"))))) == price }
+    assertTrue { checkout.price(listOf(firstProduct, secondProduct)) == expected }
   }
 
-  @Test
-  internal fun `the price of a base biscuit is TWO`() {
-
-    val price = Price(BigDecimal("2.00"))
-
-    assertTrue { checkout.price(listOf(Product("Biscuit", Price(BigDecimal("2.00"))))) == price }
-  }
+  private fun aProductWith(price: Price) =
+      Product("A_PRODUCT_NAME", price)
 }
