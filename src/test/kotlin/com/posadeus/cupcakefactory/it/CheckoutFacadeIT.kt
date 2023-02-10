@@ -3,8 +3,7 @@ package com.posadeus.cupcakefactory.it
 import com.posadeus.cupcakefactory.checkout.*
 import com.posadeus.cupcakefactory.common.Price
 import com.posadeus.cupcakefactory.common.exception.ToppingNotAllowedException
-import com.posadeus.cupcakefactory.product.AvailableProducts.BISCUIT
-import com.posadeus.cupcakefactory.product.AvailableProducts.CUPCAKE
+import com.posadeus.cupcakefactory.product.AvailableProducts.*
 import com.posadeus.cupcakefactory.product.AvailableTopping.*
 import com.posadeus.cupcakefactory.product.ProductFactory
 import org.junit.jupiter.api.Test
@@ -72,5 +71,13 @@ class CheckoutFacadeIT {
     val order = Order(BISCUIT, listOf(VANILLA))
 
     assertThrows<ToppingNotAllowedException> { checkout.order(listOf(order)) }
+  }
+
+  @Test
+  fun `checkout a bundled cupcake`() {
+
+    val order = Order(BUNDLE_1_CUPCAKE, emptyList())
+
+    assertTrue { checkout.order(listOf(order)) == Price(BigDecimal("1.17")) }
   }
 }

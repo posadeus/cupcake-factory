@@ -1,5 +1,6 @@
 package com.posadeus.cupcakefactory.checkout
 
+import com.posadeus.cupcakefactory.common.Discount
 import com.posadeus.cupcakefactory.common.Price
 import com.posadeus.cupcakefactory.product.Product
 import org.junit.jupiter.api.Test
@@ -37,6 +38,15 @@ class CheckoutTest {
     assertTrue { checkout.price(listOf(firstProduct, secondProduct)) == expected }
   }
 
-  private fun aProductWith(price: Price) =
-      Product("A_PRODUCT_NAME", price, emptySet())
+  @Test
+  internal fun `checkout discounted product`() {
+
+    val product = aProductWith(Price(BigDecimal("1.00")), Discount(10))
+    val expected = Price(BigDecimal("0.90"))
+
+    assertTrue { checkout.price(listOf(product)) == expected }
+  }
+
+  private fun aProductWith(price: Price, discount: Discount? = null) =
+      Product("A_PRODUCT_NAME", price, emptySet(), discount)
 }
