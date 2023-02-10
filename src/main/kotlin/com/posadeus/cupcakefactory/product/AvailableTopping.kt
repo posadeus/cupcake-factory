@@ -1,36 +1,12 @@
 package com.posadeus.cupcakefactory.product
 
-import com.posadeus.cupcakefactory.common.Price
-import com.posadeus.cupcakefactory.common.exception.ToppingNotAllowedException
-import com.posadeus.cupcakefactory.product.AvailableProducts.BISCUIT
-import com.posadeus.cupcakefactory.product.AvailableProducts.CUPCAKE
 import java.math.BigDecimal
 
-enum class AvailableTopping(private val toppingName: String,
-                            private val price: BigDecimal,
-                            private val applicableOn: List<AvailableProducts>) {
+enum class AvailableTopping(val toppingName: String,
+                            val price: BigDecimal) {
 
-  CHOCOLATE("Chocolate", BigDecimal("0.10"), listOf(CUPCAKE, BISCUIT)),
-  NUTS("Nuts", BigDecimal("0.20"), listOf(CUPCAKE, BISCUIT)),
-  VANILLA("Vanilla", BigDecimal("0.25"), listOf(CUPCAKE)),
-  WHIPPED_CREAM("Whipped Cream", BigDecimal("0.30"), listOf(CUPCAKE));
-
-  fun applyOn(productType: AvailableProducts, product: Product): Product =
-      if (canApplyOn(productType))
-        applyTopping(product)
-      else
-        throw ToppingNotAllowedException
-
-  private fun canApplyOn(product: AvailableProducts): Boolean =
-      this.applicableOn.contains(product)
-
-  private fun applyTopping(product: Product): Product =
-      Product(name(product), price(product))
-
-  private fun name(product: Product): String =
-      "$toppingName ${product.name}"
-
-  private fun price(product: Product): Price =
-      Price(price.plus(product.price.value),
-            product.price.currency)
+  CHOCOLATE("Chocolate", BigDecimal("0.10")),
+  NUTS("Nuts", BigDecimal("0.20")),
+  VANILLA("Vanilla", BigDecimal("0.25")),
+  WHIPPED_CREAM("Whipped Cream", BigDecimal("0.30"))
 }

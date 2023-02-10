@@ -33,7 +33,7 @@ class CheckoutFacadeTest {
     private val AN_ORDER = Order(CUPCAKE, emptyList())
     private val ANOTHER_ORDER = Order(CUPCAKE, emptyList())
     private val A_PRICE = Price(BigDecimal.TEN)
-    private val A_CUPCAKE = Product("A_NAME", A_PRICE)
-    private val ANOTHER_CUPCAKE = Product("A_NAME", A_PRICE)
+    private val A_CUPCAKE = Product("A_NAME", A_PRICE, emptySet())
+    private val ANOTHER_CUPCAKE = Product("A_NAME", A_PRICE, emptySet())
   }
 }

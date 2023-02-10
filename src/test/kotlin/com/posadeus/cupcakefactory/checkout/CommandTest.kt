@@ -79,8 +79,8 @@ class CommandTest {
 
     private val A_TOPPING = AvailableTopping.CHOCOLATE
     private val ANOTHER_TOPPING = AvailableTopping.NUTS
-    private val A_CUPCAKE = Product("Cupcake", Price(BigDecimal("1.00")))
-    private val A_BISCUIT = Product("Biscuit", Price(BigDecimal("2.00")))
-    private val ANOTHER_CUPCAKE = Product("Cupcake", Price(BigDecimal("1.00")))
+    private val A_CUPCAKE = Product("Cupcake", Price(BigDecimal("1.00")), emptySet())
+    private val A_BISCUIT = Product("Biscuit", Price(BigDecimal("2.00")), emptySet())
+    private val ANOTHER_CUPCAKE = Product("Cupcake", Price(BigDecimal("1.00")), emptySet())
   }
 }

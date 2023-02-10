@@ -38,5 +38,5 @@ class CheckoutTest {
   }
 
   private fun aProductWith(price: Price) =
-      Product("A_PRODUCT_NAME", price)
+      Product("A_PRODUCT_NAME", price, emptySet())
 }
