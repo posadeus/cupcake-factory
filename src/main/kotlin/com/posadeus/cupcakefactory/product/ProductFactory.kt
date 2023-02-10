@@ -16,7 +16,7 @@ class ProductFactory {
                                   name(product.name),
                                   price(product.price)))
 
-    return go(availableTopping, productType.setBaseProduct())
+    return go(availableTopping, productType.baseProduct)
   }
 
   private fun name(productName: String): (AvailableTopping) -> String =
