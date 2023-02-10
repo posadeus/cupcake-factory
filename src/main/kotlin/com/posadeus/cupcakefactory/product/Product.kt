@@ -8,9 +8,9 @@ data class Product(val name: String,
                    val applicableTopping: Set<AvailableTopping>)
 
 fun Product.applyTopping(topping: AvailableTopping,
-                         f: (AvailableTopping) -> String,
-                         g: (AvailableTopping) -> Price): Product =
+                         rename: (AvailableTopping) -> String,
+                         reprice: (AvailableTopping) -> Price): Product =
     if (applicableTopping.contains(topping))
-      Product(f(topping), g(topping), applicableTopping)
+      Product(rename(topping), reprice(topping), applicableTopping)
     else
       throw ToppingNotAllowedException
