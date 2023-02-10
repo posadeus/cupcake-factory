@@ -80,4 +80,20 @@ class CheckoutFacadeIT {
 
     assertTrue { checkout.order(listOf(order)) == Price(BigDecimal("1.17")) }
   }
+
+  @Test
+  fun `checkout a bundled cupcake and biscuit`() {
+
+    val order = Order(BUNDLE_1_CUPCAKE_1_BISCUIT, emptyList())
+
+    assertTrue { checkout.order(listOf(order)) == Price(BigDecimal("2.70")) }
+  }
+
+  @Test
+  fun `checkout two bundled cupcake and biscuit`() {
+
+    val order = Order(BUNDLE_2_CUPCAKE_1_BISCUIT, emptyList())
+
+    assertTrue { checkout.order(listOf(order)) == Price(BigDecimal("3.92")) }
+  }
 }
