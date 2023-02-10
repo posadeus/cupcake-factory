@@ -20,8 +20,8 @@ class ProductFactoryTest {
     val availableTopping = emptyList<AvailableTopping>()
     val cupcake = productFactory.createProduct(CUPCAKE, availableTopping)
 
-    assertTrue { cupcake.name() == "Cupcake" }
-    assertTrue { cupcake.price() == Price(BigDecimal("1.00")) }
+    assertTrue { cupcake.name == "Cupcake" }
+    assertTrue { cupcake.price == Price(BigDecimal("1.00")) }
   }
 
   @Test
@@ -30,8 +30,8 @@ class ProductFactoryTest {
     val topping = listOf(CHOCOLATE)
     val cupcake = productFactory.createProduct(CUPCAKE, topping)
 
-    assertTrue { cupcake.name() == "Chocolate Cupcake" }
-    assertTrue { cupcake.price() == Price(BigDecimal("1.10")) }
+    assertTrue { cupcake.name == "Chocolate Cupcake" }
+    assertTrue { cupcake.price == Price(BigDecimal("1.10")) }
   }
 
   @Test
@@ -40,8 +40,8 @@ class ProductFactoryTest {
     val topping = listOf(CHOCOLATE, NUTS)
     val cupcake = productFactory.createProduct(CUPCAKE, topping)
 
-    assertTrue { cupcake.name() == "Nuts Chocolate Cupcake" }
-    assertTrue { cupcake.price() == Price(BigDecimal("1.30")) }
+    assertTrue { cupcake.name == "Nuts Chocolate Cupcake" }
+    assertTrue { cupcake.price == Price(BigDecimal("1.30")) }
   }
 
   @Test
@@ -50,8 +50,8 @@ class ProductFactoryTest {
     val topping = listOf(NUTS, CHOCOLATE)
     val cupcake = productFactory.createProduct(CUPCAKE, topping)
 
-    assertTrue { cupcake.name() == "Chocolate Nuts Cupcake" }
-    assertTrue { cupcake.price() == Price(BigDecimal("1.30")) }
+    assertTrue { cupcake.name == "Chocolate Nuts Cupcake" }
+    assertTrue { cupcake.price == Price(BigDecimal("1.30")) }
   }
 
   @Test
@@ -60,8 +60,8 @@ class ProductFactoryTest {
     val availableTopping = emptyList<AvailableTopping>()
     val biscuit = productFactory.createProduct(BISCUIT, availableTopping)
 
-    assertTrue { biscuit.name() == "Biscuit" }
-    assertTrue { biscuit.price() == Price(BigDecimal("2.00")) }
+    assertTrue { biscuit.name == "Biscuit" }
+    assertTrue { biscuit.price == Price(BigDecimal("2.00")) }
   }
 
   @Test
@@ -70,8 +70,8 @@ class ProductFactoryTest {
     val availableTopping = listOf(CHOCOLATE)
     val biscuit = productFactory.createProduct(BISCUIT, availableTopping)
 
-    assertTrue { biscuit.name() == "Chocolate Biscuit" }
-    assertTrue { biscuit.price() == Price(BigDecimal("2.10")) }
+    assertTrue { biscuit.name == "Chocolate Biscuit" }
+    assertTrue { biscuit.price == Price(BigDecimal("2.10")) }
   }
 
   @Test
@@ -80,8 +80,8 @@ class ProductFactoryTest {
     val availableToppings = listOf(CHOCOLATE, NUTS)
     val biscuit = productFactory.createProduct(BISCUIT, availableToppings)
 
-    assertTrue { biscuit.name() == "Nuts Chocolate Biscuit" }
-    assertTrue { biscuit.price() == Price(BigDecimal("2.30")) }
+    assertTrue { biscuit.name == "Nuts Chocolate Biscuit" }
+    assertTrue { biscuit.price == Price(BigDecimal("2.30")) }
   }
 
   @Test
@@ -90,8 +90,8 @@ class ProductFactoryTest {
     val availableTopping = listOf(NUTS)
     val biscuit = productFactory.createProduct(BISCUIT, availableTopping)
 
-    assertTrue { biscuit.name() == "Nuts Biscuit" }
-    assertTrue { biscuit.price() == Price(BigDecimal("2.20")) }
+    assertTrue { biscuit.name == "Nuts Biscuit" }
+    assertTrue { biscuit.price == Price(BigDecimal("2.20")) }
   }
 
   @Test

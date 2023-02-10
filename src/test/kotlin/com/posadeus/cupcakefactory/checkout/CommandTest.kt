@@ -1,11 +1,13 @@
 package com.posadeus.cupcakefactory.checkout
 
+import com.posadeus.cupcakefactory.common.Price
 import com.posadeus.cupcakefactory.product.*
 import com.posadeus.cupcakefactory.product.AvailableProducts.BISCUIT
 import com.posadeus.cupcakefactory.product.AvailableProducts.CUPCAKE
 import io.mockk.every
 import io.mockk.mockk
 import org.junit.jupiter.api.Test
+import java.math.BigDecimal
 import kotlin.test.assertTrue
 
 class CommandTest {
@@ -77,8 +79,8 @@ class CommandTest {
 
     private val A_TOPPING = AvailableTopping.CHOCOLATE
     private val ANOTHER_TOPPING = AvailableTopping.NUTS
-    private val A_CUPCAKE = Cupcake
-    private val A_BISCUIT = Biscuit
-    private val ANOTHER_CUPCAKE = Cupcake
+    private val A_CUPCAKE = Product("Cupcake", Price(BigDecimal("1.00")))
+    private val A_BISCUIT = Product("Biscuit", Price(BigDecimal("2.00")))
+    private val ANOTHER_CUPCAKE = Product("Cupcake", Price(BigDecimal("1.00")))
   }
 }

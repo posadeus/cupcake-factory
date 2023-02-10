@@ -25,12 +25,12 @@ enum class AvailableTopping(private val toppingName: String,
       this.applicableOn.contains(product)
 
   private fun applyTopping(product: Product): Product =
-      ToppedProduct(name(product), price(product))
+      Product(name(product), price(product))
 
   private fun name(product: Product): String =
-      "$toppingName ${product.name()}"
+      "$toppingName ${product.name}"
 
   private fun price(product: Product): Price =
-      Price(price.plus(product.price().value),
-            product.price().currency)
+      Price(price.plus(product.price.value),
+            product.price.currency)
 }
